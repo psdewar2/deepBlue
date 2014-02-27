@@ -1,13 +1,18 @@
 package com.me.deepblue;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class GameScreen implements Screen{
 
 	private DeepBlue game;
+	OrthographicCamera camera;
 	
 	public GameScreen(DeepBlue game){
 		this.game = game;
+		
+		camera = new OrthographicCamera();
+		camera.setToOrtho(true,1920,1080);
 	}
 	
 	@Override
@@ -17,19 +22,7 @@ public class GameScreen implements Screen{
 	}
 
 	@Override
-	public void resize(int width, int height) {
-		
-		
-	}
-
-	@Override
 	public void show() {
-		
-		
-	}
-
-	@Override
-	public void hide() {
 		
 		
 	}
@@ -51,5 +44,12 @@ public class GameScreen implements Screen{
 		
 		
 	}
+	
+	@Override
+	public void resize(int width, int height) {	
+	}
 
+	@Override
+	public void hide() {
+	}
 }
