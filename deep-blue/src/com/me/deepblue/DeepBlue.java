@@ -1,6 +1,8 @@
 package com.me.deepblue;
 
 import com.badlogic.gdx.Game;
+import com.me.screens.GameScreen;
+import com.me.screens.MenuScreen;
 
 public class DeepBlue extends Game{
 
