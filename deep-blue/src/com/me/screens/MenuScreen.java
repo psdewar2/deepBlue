@@ -15,6 +15,7 @@ public class MenuScreen implements Screen{
 	OrthographicCamera camera;
 	Vector3 click;
 	SpriteBatch batch;
+	int wave_x = 0;
 	
 	public GameScreen play_screen;
 	
@@ -42,6 +43,12 @@ public class MenuScreen implements Screen{
 		batch.begin();
 		
 		//RENDERING CODE GOES HERE
+		if(wave_x >= 1200)
+			wave_x = 0;
+		batch.draw(Objects.wave_sprite, wave_x, 0);
+		batch.draw(Objects.wave_sprite1, wave_x - 1200, 0);
+		wave_x++;
+		
 		batch.draw(Objects.background_sprite, 0, 0);
 		batch.draw(Objects.tutorial_sprite, 709, 347);
 		batch.draw(Objects.play_sprite, 881, 501);
