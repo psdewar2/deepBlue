@@ -8,8 +8,8 @@ public class Main {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
 		cfg.title = "Deep Blue";
 		cfg.useGL20 = true;
-		cfg.width = 960;
-		cfg.height = 540;
+		cfg.width = 1200;
+		cfg.height = 600;
 		cfg.resizable = true;
 		
 		new LwjglApplication(new DeepBlue(), cfg);

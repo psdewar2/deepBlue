@@ -22,6 +22,7 @@ public class Objects {
 	//Play Images
 	public static Texture sea_image;
 	public static Sprite sea_sprite;
+	public static Sprite sea_sprite1;
 	public static Texture turtle_image;
 	public static Sprite turtle_sprite;
 	public static Texture fish_image;
@@ -57,10 +58,12 @@ public class Objects {
 	}
 	
 	public static void loadPlay(){
-		sea_image = new Texture(Gdx.files.internal("play/playbg.png"));
+		sea_image = new Texture(Gdx.files.internal("play/background.jpg"));
 		sea_image.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		sea_sprite = new Sprite(sea_image);
+		sea_sprite = new Sprite(sea_image,0,0,1200,600);
 		sea_sprite.flip(false, true);
+		sea_sprite1 = new Sprite(sea_image,0,0,1200,600);
+		sea_sprite1.flip(false, true);
 		
 		turtle_image = new Texture(Gdx.files.internal("play/turtle.png"));
 		turtle_sprite = new Sprite(turtle_image);

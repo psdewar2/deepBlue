@@ -21,7 +21,7 @@ public class GameScreen implements Screen{
 		this.game = game;
 		
 		camera = new OrthographicCamera();
-		camera.setToOrtho(true,1920,1080);
+		camera.setToOrtho(true,1200,600);
 		
 		batch = new SpriteBatch();
 		player = new Player();
@@ -37,7 +37,21 @@ public class GameScreen implements Screen{
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		//RENDERING CODE GOES HERE
-		batch.draw(Objects.sea_sprite, 0, 0);
+		
+		//Default scroll speed
+		camera.position.x++;
+		
+		//Scrolling screen code
+		if(camera.position.x -1200 / 2 > Objects.sea_sprite1.getX()){
+			Objects.sea_sprite.setPosition(Objects.sea_sprite1.getX(),0);
+	         Objects.sea_sprite1.setPosition(Objects.sea_sprite.getX() + 1200, 0);
+	    }
+		Objects.sea_sprite.draw(batch);
+	      
+		Objects.sea_sprite1.draw(batch);	
+		
+		//batch.draw(Objects.sea_sprite, 0, 0);
+		
 		batch.draw(Objects.turtle_sprite, player.x, player.y);
 		batch.end();
 	}
