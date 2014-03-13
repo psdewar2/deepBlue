@@ -6,11 +6,11 @@ import com.me.screens.MenuScreen;
 
 public class DeepBlue extends Game{
 
-	public GameScreen main_menu_screen;
+	public MenuScreen main_menu_screen;
 	
 	@Override
 	public void create() {
-		main_menu_screen = new GameScreen(this);
+		main_menu_screen = new MenuScreen(this);
 		
 		setScreen(main_menu_screen);
 	}

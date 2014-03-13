@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.me.deepblue.DeepBlue;
 import com.me.deepblue.Objects;
 
@@ -12,16 +13,21 @@ public class MenuScreen implements Screen{
 
 	DeepBlue game;
 	OrthographicCamera camera;
+	Vector3 click;
 	SpriteBatch batch;
+	
+	public GameScreen play_screen;
 	
 	public MenuScreen(DeepBlue game){
 		Objects.loadMainMenu();
 		this.game = game;
 		
+		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(true,1920,1080);
 		
 		batch = new SpriteBatch();
+		click = new Vector3();
 	}
 	
 	@Override
@@ -30,6 +36,7 @@ public class MenuScreen implements Screen{
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		camera.update();
+		onClickListener();
 		
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
@@ -42,6 +49,18 @@ public class MenuScreen implements Screen{
 		batch.draw(Objects.credits_sprite, 809, 831);
 		
 		batch.end();
+	}
+
+	private void onClickListener() {
+		if(Gdx.input.isTouched()){
+			click.set(Gdx.input.getX(),Gdx.input.getY(),0);
+			camera.unproject(click);
+			if(click.x >= 881 && click.x <= 1121 && click.y >= 501 && click.y <= 650){
+				dispose();
+				play_screen = new GameScreen(game);
+				game.setScreen(play_screen);
+			}
+		}
 	}
 
 	@Override
