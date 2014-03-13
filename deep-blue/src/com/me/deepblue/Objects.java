@@ -10,6 +10,7 @@ public class Objects {
 	//Main Menu Images
 	public static Texture wave_image;
 	public static Sprite wave_sprite;
+	public static Sprite wave_sprite1;
 	public static Texture background_image;
 	public static Sprite background_sprite;
 	public static Texture play_image;
@@ -33,10 +34,12 @@ public class Objects {
 	public static Sprite shark_sprite;
 	
 	public static void loadMainMenu(){
-		wave_image = new Texture(Gdx.files.internal("menu/wave.png"));
+		wave_image = new Texture(Gdx.files.internal("menu/waves.png"));
 		wave_image.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		wave_sprite = new Sprite(background_image);
+		wave_sprite = new Sprite(wave_image);
 		wave_sprite.flip(false, true);
+		wave_sprite1 = new Sprite(wave_image);
+		wave_sprite1.flip(false, true);
 		
 		background_image = new Texture(Gdx.files.internal("menu/menubg.png"));
 		background_image.setFilter(TextureFilter.Linear, TextureFilter.Linear);
