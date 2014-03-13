@@ -24,7 +24,7 @@ public class MenuScreen implements Screen{
 		
 		
 		camera = new OrthographicCamera();
-		camera.setToOrtho(true,1920,1080);
+		camera.setToOrtho(true,1200,600);
 		
 		batch = new SpriteBatch();
 		click = new Vector3();
