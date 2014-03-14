@@ -1,6 +1,8 @@
+*.cache
 *.class
-
+RobovmLauncher.class
 # Package Files #
 *.jar
 *.war
 *.ear
+
